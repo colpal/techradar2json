@@ -1,0 +1,9 @@
+name: PostgreSQL
+homepage: https://www.postgresql.org/
+license: open-source
+category: platforms
+tags:
+  - database
+links:
+  - https://example.com/first-link
+  - https://example.com/second-link

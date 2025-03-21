@@ -1,0 +1,20 @@
+ratings:
+  - name: Adopt
+    id: adopt
+  - name: Trial
+    id: trial
+  - name: Assess
+    id: assess
+  - name: Hold
+    id: hold
+categories:
+  - name: Techniques
+    id: techniques
+  - name: Platforms
+    id: platforms
+  - name: Tools
+    id: tools
+  - name: Languages and Frameworks
+    id: languages-and-frameworks
+tags:
+  - database
