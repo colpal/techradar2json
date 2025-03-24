@@ -19,7 +19,7 @@ jobs:
       - run: chmod +x techradar2json
 
       - if: startsWith(github.ref, 'refs/tags/v')
-        run: gh release create "$TAG" 
+        run: gh release create "$TAG" techradar2json
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG: ${{ github.ref_name }}
