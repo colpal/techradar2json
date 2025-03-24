@@ -83,13 +83,18 @@ async function loadTechnologies(path: string): Promise<Technology[]> {
 }
 
 
-async function main() {
-  const folder = join(dirname(process.argv[2]), "technologies/")
+async function loadTechnologyRadar(configPath: string) {
+  const folder = join(dirname(configPath), "technologies/")
   const [configuration, technologies] = await Promise.all([
-    loadRootConfiguration(process.argv[2]),
+    loadRootConfiguration(configPath),
     loadTechnologies(folder),
   ])
-  console.log(JSON.stringify({ configuration, technologies }))
+  return { configuration, technologies }
+}
+
+
+async function main() {
+  console.log(JSON.stringify(await loadTechnologyRadar(process.argv[2])))
 }
 
 
