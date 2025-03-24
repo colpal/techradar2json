@@ -1,7 +1,7 @@
 {
   "scripts": {
     "format": "prettier --write",
-    "test": "vitest",
+    "test": "vitest run",
     "watch": "npm run build -- --watch=forever",
     "build": "esbuild main.ts --bundle --platform=node --outfile=out.js"
   },
