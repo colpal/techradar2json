@@ -5,7 +5,7 @@ import { loadTechnologyRadar } from "./lib.ts";
 test("serializes basic Technology Radar fixture", async () => {
   const configPath = join(
     import.meta.dirname,
-    "test/fixtures/basic/config.yaml",
+    "test/fixtures/basic/",
   );
   expect(await loadTechnologyRadar(configPath)).toStrictEqual({
     configuration: {

@@ -84,12 +84,11 @@ async function loadTechnologies(path: string): Promise<Technology[]> {
 }
 
 export async function loadTechnologyRadar(
-  configPath: string,
+  directoryPath: string,
 ): Promise<TechnologyRadar> {
-  const folder = join(dirname(configPath), "technologies/");
   const [configuration, technologies] = await Promise.all([
-    loadRootConfiguration(configPath),
-    loadTechnologies(folder),
+    loadRootConfiguration(join(directoryPath, "config.yaml")),
+    loadTechnologies(join(directoryPath, "technologies/")),
   ]);
   return { configuration, technologies };
 }
