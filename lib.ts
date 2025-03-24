@@ -37,6 +37,11 @@ interface Technology extends Meta {
   posts: Post[];
 }
 
+interface TechnologyRadar {
+  configuration: RootConfiguration;
+  technologies: Technology[];
+}
+
 const POST_FILENAME_REGEX = /(\d{4}-\d{2}-\d{2})-([-a-z]+)\.md/g;
 const REQUIRED_FILES = new Set(["meta.yaml", "description.md"]);
 
@@ -78,7 +83,9 @@ async function loadTechnologies(path: string): Promise<Technology[]> {
   return Promise.all(paths.map(loadTechnology));
 }
 
-export async function loadTechnologyRadar(configPath: string) {
+export async function loadTechnologyRadar(
+  configPath: string,
+): Promise<TechnologyRadar> {
   const folder = join(dirname(configPath), "technologies/");
   const [configuration, technologies] = await Promise.all([
     loadRootConfiguration(configPath),
