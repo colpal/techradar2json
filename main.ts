@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { loadTechnologyRadar } from "./lib.ts";
 
 async function main() {
