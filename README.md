@@ -1,1 +1,1 @@
-# techradar-to-json
+# techradar2json
