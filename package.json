@@ -3,7 +3,7 @@
     "format": "prettier --write",
     "test": "vitest run",
     "watch": "npm run build -- --watch=forever",
-    "build": "esbuild main.ts --bundle --platform=node --outfile=out.js"
+    "build": "esbuild main.ts --bundle --platform=node --outfile=techradar2json"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
