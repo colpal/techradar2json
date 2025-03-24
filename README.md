@@ -6,5 +6,5 @@
 $ techradar2json ./path/to/config.yaml > technology-radar.json
 ```
 
-See [./test/fixtures/basic]() for a working example of the configuration files
-and directory structure.
+See [the "basic" test fixture](test/fixtures/basic) for a working example of the
+configuration files and directory structure.
