@@ -78,10 +78,15 @@ async function loadTechnology(path: string): Promise<Technology> {
   if (!filenames.has("meta.yaml")) {
     throw new Error(`${path}: A "meta.yaml" was not found`);
   }
+
   const metaContents = await readFile(join(path, "meta.yaml"), "utf8");
   const meta: Meta = await parse(metaContents);
 
-  const description = await readFile(join(path, "description.md"), "utf8");
+  const description = await safe(
+    readFile(join(path, "description.md"), "utf8"),
+    "",
+    `${path}: WARNING: Could not find "description.md", assuming empty file`,
+  );
 
   const postnames = [...filenames.difference(STANDARD_FILES)];
   const posts = await Promise.all(
