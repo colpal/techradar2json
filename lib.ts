@@ -59,6 +59,19 @@ async function loadPost(path: string): Promise<Post> {
   };
 }
 
+async function safe<T>(
+  p: Promise<T>,
+  fallback: T,
+  message: string | undefined = undefined,
+) {
+  try {
+    return await p;
+  } catch {
+    if (message) console.error(message);
+    return fallback;
+  }
+}
+
 async function loadTechnology(path: string): Promise<Technology> {
   const id = basename(path);
   const filenames = new Set(await readdir(path));
