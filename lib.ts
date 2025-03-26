@@ -43,7 +43,6 @@ interface TechnologyRadar {
 }
 
 const POST_FILENAME_REGEX = /(\d{4}-\d{2}-\d{2})-([-a-z]+)\.md/g;
-const REQUIRED_FILES = new Set(["meta.yaml", "description.md"]);
 
 async function loadRootConfiguration(path: string): Promise<RootConfiguration> {
   return parse(await readFile(path, "utf8"));
@@ -75,8 +74,8 @@ async function safe<T>(
 async function loadTechnology(path: string): Promise<Technology> {
   const id = basename(path);
   const filenames = new Set(await readdir(path));
-  if (!filenames.isSupersetOf(REQUIRED_FILES)) {
-    throw new Error(`${path}: A "meta.yaml" or "description.md" was not found`);
+  if (!filenames.has("meta.yaml")) {
+    throw new Error(`${path}: A "meta.yaml" was not found`);
   }
   const metaContents = await readFile(join(path, "meta.yaml"), "utf8");
   const meta: Meta = await parse(metaContents);
