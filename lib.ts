@@ -43,6 +43,7 @@ interface TechnologyRadar {
 }
 
 const POST_FILENAME_REGEX = /(\d{4}-\d{2}-\d{2})-([-a-z]+)\.md/g;
+const STANDARD_FILES = new Set(["meta.yaml", "description.md"]);
 
 async function loadRootConfiguration(path: string): Promise<RootConfiguration> {
   return parse(await readFile(path, "utf8"));
@@ -82,7 +83,7 @@ async function loadTechnology(path: string): Promise<Technology> {
 
   const description = await readFile(join(path, "description.md"), "utf8");
 
-  const postnames = [...filenames.difference(REQUIRED_FILES)];
+  const postnames = [...filenames.difference(STANDARD_FILES)];
   const posts = await Promise.all(
     postnames.map((p) => loadPost(join(path, p))),
   );
