@@ -65,11 +65,11 @@ async function loadTechnology(path: string): Promise<Technology> {
   if (!filenames.isSupersetOf(REQUIRED_FILES)) {
     throw new Error(`${path}: A "meta.yaml" or "description.md" was not found`);
   }
-  const [metaContents, description] = await Promise.all([
-    readFile(join(path, "meta.yaml"), "utf8"),
-    readFile(join(path, "description.md"), "utf8"),
-  ]);
+  const metaContents = await readFile(join(path, "meta.yaml"), "utf8");
   const meta: Meta = await parse(metaContents);
+
+  const description = await readFile(join(path, "description.md"), "utf8");
+
   const postnames = [...filenames.difference(REQUIRED_FILES)];
   const posts = await Promise.all(
     postnames.map((p) => loadPost(join(path, p))),
