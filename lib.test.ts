@@ -3,10 +3,7 @@ import { expect, test } from "vitest";
 import { loadTechnologyRadar } from "./lib.ts";
 
 test("serializes basic Technology Radar fixture", async () => {
-  const configPath = join(
-    import.meta.dirname,
-    "test/fixtures/basic/",
-  );
+  const configPath = join(import.meta.dirname, "test/fixtures/basic/");
   expect(await loadTechnologyRadar(configPath)).toStrictEqual({
     configuration: {
       ratings: [
