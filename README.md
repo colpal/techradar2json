@@ -32,8 +32,9 @@ name: string
 # informative for the uninitiated)
 homepage: string
 
-# REQUIRED
-# The license associated with the technology. Must be one of the following:
+# OPTIONAL
+# The license associated with the technology. If defined, must be one of the
+# following:
 # - "open-source"
 # - "proprietary"
 license: string

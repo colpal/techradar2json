@@ -25,7 +25,7 @@ interface Post {
 interface Meta {
   name: string;
   homepage: string;
-  license: "open-source" | "proprietary";
+  license: "open-source" | "proprietary" | undefined;
   category: string;
   tags: string[];
   links: string[];
