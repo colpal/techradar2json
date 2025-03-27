@@ -42,7 +42,7 @@ interface TechnologyRadar {
   technologies: Technology[];
 }
 
-const POST_FILENAME_REGEX = /(\d{4}-\d{2}-\d{2})-([-a-z]+)\.md/g;
+const POST_FILENAME_REGEX = /^(\d{4}-\d{2}-\d{2})-([-a-z]+)\.md$/;
 const STANDARD_FILES = new Set(["meta.yaml", "description.md"]);
 
 async function loadRootConfiguration(path: string): Promise<RootConfiguration> {
